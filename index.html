@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Legal Center | Wordle Unlimited</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --primary-blue: #225be0;
+      --sky-blue: #5a87f0;
+      --navy-shadow: #113a9c;
+      --bg-color: #f0f4ff;
+      --surface-white: #ffffff;
+      --text-dark: #1e293b;
+      --text-muted: #64748b;
+      --border-color: #e2e8f0;
+      --green-accent: #26bf58;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-dark);
+      line-height: 1.65;
+      padding-bottom: 60px;
+    }
+
+    /* Hero Header */
+    .hero {
+      background: linear-gradient(135deg, var(--sky-blue) 0%, var(--primary-blue) 100%);
+      color: #fff;
+      padding: 48px 20px 36px;
+      text-align: center;
+      box-shadow: 0 8px 24px rgba(34, 91, 224, 0.25);
+    }
+
+    .hero-logo {
+      display: inline-flex;
+      gap: 6px;
+      margin-bottom: 14px;
+    }
+
+    .hero-tile {
+      width: 38px;
+      height: 42px;
+      background: #ffffff;
+      color: var(--primary-blue);
+      font-weight: 900;
+      font-size: 22px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 8px;
+      box-shadow: 0 4px 0 #cbd5e1;
+    }
+
+    .hero h1 {
+      font-size: 32px;
+      font-weight: 900;
+      letter-spacing: -0.5px;
+      margin-bottom: 6px;
+    }
+
+    .hero p {
+      font-size: 15px;
+      font-weight: 600;
+      opacity: 0.92;
+    }
+
+    /* Container & Tab Navigation */
+    .container {
+      max-width: 900px;
+      margin: -24px auto 0;
+      padding: 0 16px;
+    }
+
+    .tab-nav-wrapper {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 24px;
+    }
+
+    .tab-nav {
+      background: #ffffff;
+      padding: 6px;
+      border-radius: 16px;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+      display: inline-flex;
+      gap: 6px;
+      border: 1px solid var(--border-color);
+    }
+
+    .tab-btn {
+      border: none;
+      background: transparent;
+      padding: 12px 24px;
+      font-size: 14px;
+      font-weight: 800;
+      color: var(--text-muted);
+      border-radius: 12px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .tab-btn:hover {
+      color: var(--primary-blue);
+    }
+
+    .tab-btn.active {
+      background: linear-gradient(135deg, var(--sky-blue), var(--primary-blue));
+      color: #ffffff;
+      box-shadow: 0 4px 10px rgba(34, 91, 224, 0.3);
+    }
+
+    /* Content Cards */
+    .content-card {
+      background: var(--surface-white);
+      border-radius: 24px;
+      padding: 36px 32px;
+      box-shadow: 0 10px 30px rgba(35, 49, 72, 0.06);
+      border: 1px solid var(--border-color);
+      display: none;
+    }
+
+    .content-card.active {
+      display: block;
+      animation: fadeIn 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .badge-pill {
+      display: inline-block;
+      padding: 4px 12px;
+      background: #dbeafe;
+      color: var(--primary-blue);
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 800;
+      margin-bottom: 12px;
+      letter-spacing: 0.5px;
+    }
+
+    .card-title {
+      font-size: 26px;
+      font-weight: 900;
+      color: var(--text-dark);
+      margin-bottom: 6px;
+    }
+
+    .card-meta {
+      font-size: 13px;
+      color: var(--text-muted);
+      font-weight: 600;
+      margin-bottom: 28px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    /* Typography & Sections */
+    h2 {
+      font-size: 19px;
+      font-weight: 800;
+      color: var(--primary-blue);
+      margin: 28px 0 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    h3 {
+      font-size: 16px;
+      font-weight: 700;
+      margin: 18px 0 8px;
+      color: var(--text-dark);
+    }
+
+    p, li {
+      font-size: 14.5px;
+      color: #334155;
+      margin-bottom: 12px;
+    }
+
+    ul {
+      margin-left: 20px;
+      margin-bottom: 16px;
+    }
+
+    li {
+      margin-bottom: 6px;
+    }
+
+    /* Callout & Disclaimer Boxes */
+    .callout-box {
+      background: #f8fafc;
+      border-left: 4px solid var(--primary-blue);
+      padding: 16px;
+      border-radius: 0 12px 12px 0;
+      margin: 18px 0;
+    }
+
+    .callout-warning {
+      background: #fef2f2;
+      border-left: 4px solid #ef4444;
+    }
+
+    .callout-warning h4 {
+      color: #b91c1c;
+      font-weight: 800;
+      margin-bottom: 4px;
+    }
+
+    .callout-success {
+      background: #f0fdf4;
+      border-left: 4px solid var(--green-accent);
+    }
+
+    /* Table Styling */
+    .table-container {
+      overflow-x: auto;
+      margin: 20px 0;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13.5px;
+    }
+
+    th, td {
+      padding: 12px 14px;
+      text-align: left;
+      border: 1px solid var(--border-color);
+    }
+
+    th {
+      background: #f8fafc;
+      font-weight: 800;
+      color: var(--text-dark);
+    }
+
+    /* Footer */
+    .footer {
+      text-align: center;
+      margin-top: 40px;
+      color: var(--text-muted);
+      font-size: 13px;
+    }
+
+    .footer a {
+      color: var(--primary-blue);
+      text-decoration: none;
+      font-weight: 700;
+    }
+
+    @media (max-width: 640px) {
+      .hero { padding: 36px 16px 28px; }
+      .content-card { padding: 24px 18px; border-radius: 18px; }
+      .tab-btn { padding: 10px 16px; font-size: 13px; }
+      .hero-tile { width: 32px; height: 36px; font-size: 18px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Hero Header -->
+  <header class="hero">
+    <div class="hero-logo">
+      <div class="hero-tile">W</div>
+      <div class="hero-tile">O</div>
+      <div class="hero-tile">R</div>
+      <div class="hero-tile">D</div>
+      <div class="hero-tile">L</div>
+      <div class="hero-tile">E</div>
+    </div>
+    <h1>Wordle Unlimited</h1>
+    <p>Official Legal & Privacy Compliance Portal • Iconic Studios</p>
+  </header>
+
+  <!-- Main Container -->
+  <main class="container">
+    <!-- Tab Switcher -->
+    <div class="tab-nav-wrapper">
+      <div class="tab-nav">
+        <button id="tab-privacy-btn" class="tab-btn active" onclick="switchTab('privacy')">
+          🛡️ Privacy Policy
+        </button>
+        <button id="tab-terms-btn" class="tab-btn" onclick="switchTab('terms')">
+          📜 Terms of Service
+        </button>
+      </div>
+    </div>
+
+    <!-- ==================== TAB 1: PRIVACY POLICY ==================== -->
+    <article id="tab-privacy" class="content-card active">
+      <span class="badge-pill">COMPLIANCE & DATA SAFETY</span>
+      <h1 class="card-title">Privacy Policy</h1>
+      <div class="card-meta">Effective Date: September 1, 2026 • Last Updated: September 1, 2026</div>
+
+      <div class="callout-box callout-success">
+        <strong>Privacy-First Architecture:</strong> Wordle Unlimited does not require user accounts, email registrations, or server-side logins. All game stats, streaks, and booster inventories are stored strictly on your local device.
+      </div>
+
+      <h2>1. Information We Collect</h2>
+      <p>We believe in data minimization. We do not operate our own database servers to harvest or sell your personal data.</p>
+      
+      <h3>A. Information Stored Locally on Your Device</h3>
+      <ul>
+        <li><strong>Gameplay Statistics:</strong> Total games played, games won, win streaks, guess distribution.</li>
+        <li><strong>Game State:</strong> Current board state and daily word completion status.</li>
+        <li><strong>Booster Inventory:</strong> Quantities of earned Hints, Cleanups, and Wheel Respins.</li>
+        <li><strong>Preferences:</strong> Sound effects and tactile haptic vibration toggles.</li>
+      </ul>
+
+      <h3>B. Information Processed by Third-Party SDKs</h3>
+      <p>The App integrates <strong>Google AdMob (Google LLC)</strong> to deliver banner and rewarded video ads. AdMob may collect and process:</p>
+      <ul>
+        <li><strong>Device Identifiers:</strong> Google Advertising ID (GAID / AAID), device model, OS version.</li>
+        <li><strong>Network & Diagnostic Info:</strong> Coarse IP address (for region-level ad delivery), connection state, and crash logs.</li>
+        <li><strong>Ad Interaction Telemetry:</strong> Views, clicks, and fraud prevention signals.</li>
+      </ul>
+
+      <h2>2. Device Permissions & Clarity</h2>
+      <ul>
+        <li><strong>INTERNET & NETWORK STATE:</strong> Used exclusively to request advertisements via Google AdMob.</li>
+        <li><strong>VIBRATE:</strong> Used for optional tactile haptic feedback during typing and victories.</li>
+        <li><strong>POST_NOTIFICATIONS:</strong> Used strictly for local on-device reminder schedules (e.g. Daily Wordle drop). No remote push tokens (FCM) are transmitted.</li>
+        <li><strong>Microphone Clarification:</strong> The App plays local sound effects only. The App does <strong>not</strong> access your microphone, record audio, or store voice data.</li>
+      </ul>
+
+      <h2>3. Consent & Privacy Regulations (GDPR / CCPA)</h2>
+      <p>For users in the European Economic Area (EEA) and UK, the App integrates <strong>Google's User Messaging Platform (UMP) SDK</strong> to obtain and manage consent for advertising identifiers.</p>
+      <p>We do not sell personal data. California and US users can opt out of interest-based ads via device settings (<strong>Settings &gt; Google &gt; Ads &gt; Delete advertising ID</strong>).</p>
+
+      <h2>4. Children's Privacy</h2>
+      <p>Wordle Unlimited is built for a <strong>General Audience (Ages 13 and older)</strong>. We do not knowingly collect personal information from children under 13.</p>
+
+      <h2>5. Contact Us</h2>
+      <p>If you have any questions regarding this Privacy Policy, please reach out:</p>
+      <div class="callout-box">
+        <strong>Studio:</strong> Iconic Studios<br />
+        <strong>Lead Developer:</strong> Joseph Solomon<br />
+        <strong>Email:</strong> <a href="mailto:josephsolomon802@gmail.com">josephsolomon802@gmail.com</a><br />
+        <strong>Jurisdiction:</strong> Ethiopia
+      </div>
+    </article>
+
+    <!-- ==================== TAB 2: TERMS OF SERVICE ==================== -->
+    <article id="tab-terms" class="content-card">
+      <span class="badge-pill">USER AGREEMENT</span>
+      <h1 class="card-title">Terms of Service</h1>
+      <div class="card-meta">Effective Date: September 1, 2026 • Last Updated: September 1, 2026</div>
+
+      <div class="callout-box callout-warning">
+        <h4>Non-Affiliation & Trademark Disclaimer</h4>
+        <p><strong>"Wordle"</strong> is a registered trademark of <strong>The New York Times Company</strong>. Wordle Unlimited is an independent puzzle game created by <strong>Iconic Studios</strong> and is <strong>not affiliated with, authorized, maintained, sponsored, or endorsed by The New York Times Company</strong> or Josh Wardle.</p>
+      </div>
+
+      <h2>1. Acceptance of Terms</h2>
+      <p>By downloading, installing, or playing Wordle Unlimited, you agree to be bound by these Terms of Service. If you do not agree, please do not use the application.</p>
+
+      <h2>2. Eligibility & License</h2>
+      <p>You must be at least 13 years old to use the App. Iconic Studios grants you a personal, non-exclusive, non-transferable, revocable license to use the App for personal, non-commercial entertainment purposes.</p>
+
+      <h2>3. Virtual Boosters & In-Game Items</h2>
+      <ul>
+        <li>Virtual items (Hints, Cleanups, Respins) are earned exclusively via gameplay or optional rewarded ads.</li>
+        <li>Virtual boosters possess <strong>no real-world monetary value</strong>, cannot be exchanged for cash, and are stored locally on your device.</li>
+        <li>Uninstalling the App or clearing device storage cache will permanently erase your locally stored virtual items and streak stats.</li>
+      </ul>
+
+      <h2>4. Disclaimer of Warranties & Limitation of Liability</h2>
+      <p>The App is provided on an <strong>"AS IS"</strong> and <strong>"AS AVAILABLE"</strong> basis without warranties of any kind. Iconic Studios shall not be liable for any indirect, incidental, or consequential damages resulting from your use of the application.</p>
+
+      <h2>5. Governing Law</h2>
+      <p>These Terms shall be governed by and construed in accordance with the laws of <strong>Ethiopia</strong>, without regard to conflict of law provisions.</p>
+
+      <h2>6. Contact Information</h2>
+      <div class="callout-box">
+        <strong>Studio:</strong> Iconic Studios<br />
+        <strong>Lead Developer:</strong> Joseph Solomon<br />
+        <strong>Email:</strong> <a href="mailto:josephsolomon802@gmail.com">josephsolomon802@gmail.com</a>
+      </div>
+    </article>
+
+    <footer class="footer">
+      <p>© 2026 Iconic Studios (Joseph Solomon). All rights reserved.</p>
+      <p>Hosted with GitHub Pages • <a href="mailto:josephsolomon802@gmail.com">Contact Support</a></p>
+    </footer>
+  </main>
+
+  <script>
+    function switchTab(tabKey) {
+      document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+      document.querySelectorAll('.content-card').forEach(card => card.classList.remove('active'));
+
+      if (tabKey === 'terms') {
+        document.getElementById('tab-terms-btn').classList.add('active');
+        document.getElementById('tab-terms').classList.add('active');
+        history.replaceState(null, null, '#terms');
+      } else {
+        document.getElementById('tab-privacy-btn').classList.add('active');
+        document.getElementById('tab-privacy').classList.add('active');
+        history.replaceState(null, null, '#privacy');
+      }
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // Auto-detect URL Hash on load (#privacy or #terms)
+    window.addEventListener('DOMContentLoaded', () => {
+      const hash = window.location.hash.toLowerCase();
+      if (hash === '#terms') {
+        switchTab('terms');
+      } else {
+        switchTab('privacy');
+      }
+    });
+  </script>
+</body>
+</html>
