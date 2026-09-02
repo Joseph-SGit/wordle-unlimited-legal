@@ -230,30 +230,6 @@
       border-left: 4px solid var(--green-accent);
     }
 
-    /* Table Styling */
-    .table-container {
-      overflow-x: auto;
-      margin: 20px 0;
-    }
-
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: 13.5px;
-    }
-
-    th, td {
-      padding: 12px 14px;
-      text-align: left;
-      border: 1px solid var(--border-color);
-    }
-
-    th {
-      background: #f8fafc;
-      font-weight: 800;
-      color: var(--text-dark);
-    }
-
     /* Footer */
     .footer {
       text-align: center;
@@ -310,7 +286,7 @@
     <article id="tab-privacy" class="content-card active">
       <span class="badge-pill">COMPLIANCE & DATA SAFETY</span>
       <h1 class="card-title">Privacy Policy</h1>
-      <div class="card-meta">Effective Date: September 1, 2026 • Last Updated: September 1, 2026</div>
+      <div class="card-meta">Effective Date: September 1, 2026 • Last Updated: September 2, 2026</div>
 
       <div class="callout-box callout-success">
         <strong>Privacy-First Architecture:</strong> Wordle Unlimited does not require user accounts, email registrations, or server-side logins. All game stats, streaks, and booster inventories are stored strictly on your local device.
@@ -321,36 +297,44 @@
       
       <h3>A. Information Stored Locally on Your Device</h3>
       <ul>
-        <li><strong>Gameplay Statistics:</strong> Total games played, games won, win streaks, guess distribution.</li>
-        <li><strong>Game State:</strong> Current board state and daily word completion status.</li>
+        <li><strong>Gameplay Statistics:</strong> Total games played, games won, win streaks, guess distribution, and 3-game ad frequency counters.</li>
+        <li><strong>Game State:</strong> Current board state, target word progress, and daily word completion status.</li>
         <li><strong>Booster Inventory:</strong> Quantities of earned Hints, Cleanups, and Wheel Respins.</li>
         <li><strong>Preferences:</strong> Sound effects and tactile haptic vibration toggles.</li>
       </ul>
 
-      <h3>B. Information Processed by Third-Party SDKs</h3>
-      <p>The App integrates <strong>Google AdMob (Google LLC)</strong> to deliver banner and rewarded video ads. AdMob may collect and process:</p>
+      <h3>B. Information Processed by Third-Party SDKs (Google AdMob)</h3>
+      <p>The App integrates <strong>Google AdMob (Google LLC)</strong> to support free gameplay through third-party advertising. AdMob automatically processes technical information to deliver relevant ads and detect fraud:</p>
       <ul>
-        <li><strong>Device Identifiers:</strong> Google Advertising ID (GAID / AAID), device model, OS version.</li>
-        <li><strong>Network & Diagnostic Info:</strong> Coarse IP address (for region-level ad delivery), connection state, and crash logs.</li>
-        <li><strong>Ad Interaction Telemetry:</strong> Views, clicks, and fraud prevention signals.</li>
+        <li><strong>Device Identifiers:</strong> Google Advertising ID (GAID / AAID), device model, OS version, and screen metrics.</li>
+        <li><strong>Network & Diagnostic Info:</strong> Coarse IP address (used for region-level ad delivery and geo-compliance), connection status, and SDK crash logs.</li>
+        <li><strong>Ad Interaction Telemetry:</strong> Impressions, click events, video completions, and fraud prevention signals.</li>
       </ul>
 
-      <h2>2. Device Permissions & Clarity</h2>
+      <h2>2. Advertising Formats & Frequency</h2>
+      <p>Wordle Unlimited utilizes three distinct ad formats powered by Google AdMob:</p>
       <ul>
-        <li><strong>INTERNET & NETWORK STATE:</strong> Used exclusively to request advertisements via Google AdMob.</li>
+        <li><strong>Banner Ads:</strong> Displayed at the bottom of gameplay screens, positioned safely above the system navigation bar.</li>
+        <li><strong>Periodic Interstitial Ads:</strong> Fullscreen ads presented at natural transitions in Classic Mode—specifically <strong>once every three (3) completed games</strong> (after a win or loss). Interstitials never interrupt active typing or mid-round gameplay. Dismissing the ad automatically transitions the player into a new round.</li>
+        <li><strong>Voluntary Rewarded Video Ads:</strong> Optional ads that users voluntarily choose to watch to earn in-game Boosters (Hints, Cleanups) or Prize Wheel respins.</li>
+      </ul>
+
+      <h2>3. Device Permissions & Clarity</h2>
+      <ul>
+        <li><strong>INTERNET & ACCESS_NETWORK_STATE:</strong> Used exclusively to request advertisements via Google AdMob.</li>
         <li><strong>VIBRATE:</strong> Used for optional tactile haptic feedback during typing and victories.</li>
         <li><strong>POST_NOTIFICATIONS:</strong> Used strictly for local on-device reminder schedules (e.g. Daily Wordle drop). No remote push tokens (FCM) are transmitted.</li>
         <li><strong>Microphone Clarification:</strong> The App plays local sound effects only. The App does <strong>not</strong> access your microphone, record audio, or store voice data.</li>
       </ul>
 
-      <h2>3. Consent & Privacy Regulations (GDPR / CCPA)</h2>
+      <h2>4. Consent & Privacy Regulations (GDPR / CCPA)</h2>
       <p>For users in the European Economic Area (EEA) and UK, the App integrates <strong>Google's User Messaging Platform (UMP) SDK</strong> to obtain and manage consent for advertising identifiers.</p>
       <p>We do not sell personal data. California and US users can opt out of interest-based ads via device settings (<strong>Settings &gt; Google &gt; Ads &gt; Delete advertising ID</strong>).</p>
 
-      <h2>4. Children's Privacy</h2>
+      <h2>5. Children's Privacy</h2>
       <p>Wordle Unlimited is built for a <strong>General Audience (Ages 13 and older)</strong>. We do not knowingly collect personal information from children under 13.</p>
 
-      <h2>5. Contact Us</h2>
+      <h2>6. Contact Us</h2>
       <p>If you have any questions regarding this Privacy Policy, please reach out:</p>
       <div class="callout-box">
         <strong>Studio:</strong> Iconic Studios<br />
@@ -364,7 +348,7 @@
     <article id="tab-terms" class="content-card">
       <span class="badge-pill">USER AGREEMENT</span>
       <h1 class="card-title">Terms of Service</h1>
-      <div class="card-meta">Effective Date: September 1, 2026 • Last Updated: September 1, 2026</div>
+      <div class="card-meta">Effective Date: September 1, 2026 • Last Updated: September 2, 2026</div>
 
       <div class="callout-box callout-warning">
         <h4>Non-Affiliation & Trademark Disclaimer</h4>
@@ -377,20 +361,28 @@
       <h2>2. Eligibility & License</h2>
       <p>You must be at least 13 years old to use the App. Iconic Studios grants you a personal, non-exclusive, non-transferable, revocable license to use the App for personal, non-commercial entertainment purposes.</p>
 
-      <h2>3. Virtual Boosters & In-Game Items</h2>
+      <h2>3. Advertisements & Natural Transitions</h2>
+      <p>The App is provided free of charge and is supported by third-party advertisements delivered by Google AdMob:</p>
+      <ul>
+        <li>You acknowledge that periodic interstitial advertisements may be shown at natural game transitions (such as <strong>once every 3 completed rounds</strong> in Classic Mode).</li>
+        <li>Rewarded advertisements are voluntary and provide virtual in-game gameplay items upon completion.</li>
+        <li>We do not control the content of third-party advertisements or external websites linked within ads.</li>
+      </ul>
+
+      <h2>4. Virtual Boosters & In-Game Items</h2>
       <ul>
         <li>Virtual items (Hints, Cleanups, Respins) are earned exclusively via gameplay or optional rewarded ads.</li>
         <li>Virtual boosters possess <strong>no real-world monetary value</strong>, cannot be exchanged for cash, and are stored locally on your device.</li>
         <li>Uninstalling the App or clearing device storage cache will permanently erase your locally stored virtual items and streak stats.</li>
       </ul>
 
-      <h2>4. Disclaimer of Warranties & Limitation of Liability</h2>
+      <h2>5. Disclaimer of Warranties & Limitation of Liability</h2>
       <p>The App is provided on an <strong>"AS IS"</strong> and <strong>"AS AVAILABLE"</strong> basis without warranties of any kind. Iconic Studios shall not be liable for any indirect, incidental, or consequential damages resulting from your use of the application.</p>
 
-      <h2>5. Governing Law</h2>
+      <h2>6. Governing Law</h2>
       <p>These Terms shall be governed by and construed in accordance with the laws of <strong>Ethiopia</strong>, without regard to conflict of law provisions.</p>
 
-      <h2>6. Contact Information</h2>
+      <h2>7. Contact Information</h2>
       <div class="callout-box">
         <strong>Studio:</strong> Iconic Studios<br />
         <strong>Lead Developer:</strong> Joseph Solomon<br />
